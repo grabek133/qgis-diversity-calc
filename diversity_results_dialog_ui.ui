@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlgResults</class>
+ <widget class="QDialog" name="dlgResults">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>615</width>
+    <height>441</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Diversity Results</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>571</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="lytMain"/>
+  </widget>
+  <widget class="QTreeWidget" name="trwResults">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>581</width>
+     <height>419</height>
+    </rect>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <column>
+    <property name="text">
+     <string>Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Count</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Richness</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Evenness</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Shannons</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Simpsons</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
