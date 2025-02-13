@@ -6,7 +6,7 @@
 name=Divesity Calculator
 qgisMinimumVersion=3.0
 description=Calculate biodivesity indexes (Richness, Shannons and Simpsons)
-version=0.1
+version=0.5
 author=DG Plugins
 email=grabowski_darek@wp.pl
 

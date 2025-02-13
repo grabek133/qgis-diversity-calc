@@ -218,17 +218,22 @@ class DiversityCalc:
             fldCategory = self.dlg.fcbCategory.currentField()
             fldSpecies = self.dlg.fcbSpecies.currentField()
 
+            # Loop through poly features
             dctMain = {}
             for poly in lyrPoly.getFeatures():
                 sCategory = poly.attribute(fldCategory)
                 QgsMessageLog.logMessage("Category: {}".format(sCategory), "Diversity Calculator", level=Qgis.Info)
+                # Call dc_summarizePoly in diversity_functions.py to generate a summary dictionary
                 dctSummary = dc_summarizePoly(poly, lyrPoint, fldSpecies)
                 QgsMessageLog.logMessage("Summary: {}".format(dctSummary), "Diversity Calculator", level=Qgis.Info)
+                # Call dc_mergeDictionaries in diversity_functions.py to merge summary dictionary into the main results
                 dctMain = dc_mergeDictionaries(dctMain, sCategory, dctSummary)
 
             QMessageBox.information(self.dlg, "Summary", dc_resultString(dctMain))
+            # Create a results dialog with a treewidget to show results
             dlgResults = DlgResults()
 
+            # populate treewidget with results
             for category, summary in dctMain.items():
                 total = sum(summary.values())
                 twiCat = QTreeWidgetItem(dlgResults.trwResults, [category, str(total), str(dc_richness(summary)), "{:3.3f}".format(dc_evenness(summary)), "{:3.3f}".format(dc_shannons(summary)), "{:3.3f}".format(dc_simpsons(summary))])
